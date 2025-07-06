@@ -34,7 +34,7 @@ const CertificationsForm = ({ resumeData, setResumeData }) => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 mb-4 w-full">
         <div>
           <h3 className="text-xl font-semibold text-gray-900 flex items-center">
             <Award className="h-5 w-5 mr-2 text-blue-600" />
@@ -46,7 +46,7 @@ const CertificationsForm = ({ resumeData, setResumeData }) => {
         </div>
         <button
           onClick={addCertification}
-          className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto"
         >
           <Plus className="h-4 w-4" />
           <span>Add Certification</span>
