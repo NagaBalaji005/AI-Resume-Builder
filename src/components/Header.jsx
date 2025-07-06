@@ -21,7 +21,7 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
   return (
     <header className="bg-white shadow-lg border-b border-gray-200 w-full overflow-x-hidden">
       <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6 w-full max-w-full">
-        <div className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 w-full">
+        <div className="flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 w-full text-center">
           <div className="flex items-center space-x-1">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
               <FileText className="h-8 w-8 text-white" />
@@ -80,7 +80,7 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
 
         {/* Centered Stepper */}
         <div className="flex items-center justify-center w-full overflow-x-auto">
-          <div className="flex items-center space-x-4 sm:space-x-8 max-w-full w-full px-1 sm:px-0">
+          <div className="flex items-center space-x-4 sm:space-x-8 max-w-full w-full px-1 sm:px-0 justify-center">
           {steps.map((step, index) => (
             <div key={step.number} className="flex items-center">
               <div className="flex flex-col items-center">
