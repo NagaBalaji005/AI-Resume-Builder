@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 600);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+};
 
 const StudentTemplate = ({ resumeData }) => {
+  const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, projects, certifications, achievements, interests } = resumeData;
 
   return (
     <div data-resume-content style={{
-      fontFamily: 'Times New Roman, serif', 
-      lineHeight: '1.4', 
-      color: '#000', 
-      background: '#fff', 
-      padding: '32px',
-      maxWidth: '210mm', 
-      minHeight: '297mm', 
-      margin: '0 auto', 
-      fontSize: '12px',
+      fontFamily: 'Times New Roman, serif',
+      lineHeight: '1.4',
+      color: '#000',
+      background: '#fff',
+      padding: isMobile ? '3vw' : '32px',
+      maxWidth: isMobile ? '100vw' : '210mm',
+      minHeight: isMobile ? '100vh' : '297mm',
+      margin: '0 auto',
+      fontSize: isMobile ? '3.5vw' : '12px',
       border: '8px solid #fff',
       boxSizing: 'border-box',
-      boxShadow: '0 0 0 1px #e0e0e0'
+      boxShadow: '0 0 0 1px #e0e0e0',
     }}>
-      
+
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '25px', paddingBottom: '15px' }}>
         <div style={{ fontSize: '22px', fontWeight: 'bold', letterSpacing: '2px', marginBottom: '8px', textTransform: 'uppercase' }}>{personalInfo.name}</div>
