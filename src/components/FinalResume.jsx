@@ -14,15 +14,15 @@ const FinalResume = ({ resumeData, selectedTemplate, onPrevious }) => {
   const renderTemplate = () => {
     switch (selectedTemplate) {
       case 'creative':
-        return <CreativeTemplate resumeData={resumeData} />;
+        return <CreativeTemplate resumeData={resumeData} forceDesktopLayout={true} />;
       case 'modern-tech':
-        return <ModernTechTemplate resumeData={resumeData} />;
+        return <ModernTechTemplate resumeData={resumeData} forceDesktopLayout={true} />;
       case 'professional-executive':
-        return <ProfessionalExecutiveTemplate resumeData={resumeData} />;
+        return <ProfessionalExecutiveTemplate resumeData={resumeData} forceDesktopLayout={true} />;
       case 'student':
         return <StudentTemplate resumeData={resumeData} />;
       default:
-        return <CreativeTemplate resumeData={resumeData} />;
+        return <CreativeTemplate resumeData={resumeData} forceDesktopLayout={true} />;
     }
   };
 
