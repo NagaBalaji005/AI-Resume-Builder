@@ -11,7 +11,7 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-const ModernTechTemplate = ({ resumeData }) => {
+const ModernTechTemplate = ({ resumeData, forceDesktopLayout = false }) => {
   const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, projects, certifications, achievements, languages } = resumeData;
 
@@ -67,9 +67,9 @@ const ModernTechTemplate = ({ resumeData }) => {
         {/* Main Content */}
         <div style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          padding: isMobile ? '3vw' : '0 40px',
-          minHeight: isMobile ? 'auto' : 'calc(297mm - 180px)',
+          flexDirection: forceDesktopLayout ? 'row' : (isMobile ? 'column' : 'row'),
+          padding: forceDesktopLayout ? '0 40px' : (isMobile ? '3vw' : '0 40px'),
+          minHeight: forceDesktopLayout ? 'calc(297mm - 180px)' : (isMobile ? 'auto' : 'calc(297mm - 180px)'),
           boxSizing: 'border-box',
         }}>
           <div style={{
