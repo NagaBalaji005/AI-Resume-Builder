@@ -22,25 +22,25 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
     <header className="bg-white shadow-lg border-b border-gray-200 w-full overflow-x-hidden">
       <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6 w-full max-w-full">
         <div className="flex flex-col sm:flex-row items-center w-full mb-6 sm:mb-8 text-center">
-          <div className="flex-1 flex flex-col sm:flex-row items-center justify-center text-center">
-            {/* Brand */}
-            <div className="flex flex-col items-center justify-center w-full">
-              <div className="flex items-center space-x-1 justify-center w-full">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
-                  <FileText className="h-8 w-8 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900 text-center w-full">AI Resume Builder</h1>
-                  <p className="text-gray-600 flex items-center gap-1 justify-center w-full text-center">
-                    <Zap className="h-4 w-4 text-yellow-500" />
-                    ATS-Optimized Professional Resumes
-                  </p>
-                </div>
+          {/* Left (empty for symmetry) */}
+          <div className="hidden sm:block flex-1"></div>
+          {/* Center (brand/heading) */}
+          <div className="flex-1 flex flex-col items-center justify-center w-full">
+            <div className="flex items-center space-x-1 justify-center w-full">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900 text-center w-full">AI Resume Builder</h1>
+                <p className="text-gray-600 flex items-center gap-1 justify-center w-full text-center">
+                  <Zap className="h-4 w-4 text-yellow-500" />
+                  ATS-Optimized Professional Resumes
+                </p>
               </div>
             </div>
           </div>
-          {/* Profile Section */}
-          <div className="w-full sm:w-auto flex justify-center sm:justify-end mt-4 sm:mt-0">
+          {/* Right (profile section) */}
+          <div className="w-full sm:w-auto flex justify-center sm:justify-end mt-4 sm:mt-0 flex-1">
             {isAuthenticated && currentUser ? (
               <div className="relative">
                 <button
@@ -81,8 +81,8 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
           </div>
         </div>
         {/* Centered Stepper */}
-        <div className="flex items-center justify-center w-full overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50" style={{ scrollSnapType: 'x mandatory' }} ref={el => { if (el && window.innerWidth < 640) el.scrollLeft = 0; }}>
-          <div className="flex items-center space-x-4 sm:space-x-8 max-w-full w-full px-1 sm:px-0 justify-center min-w-[340px]" style={{ scrollSnapAlign: 'start' }}>
+        <div className="flex items-center justify-center w-full overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50 pl-4 pr-4">
+          <div className="flex items-center space-x-4 sm:space-x-8 max-w-full w-full px-1 sm:px-0 justify-center min-w-[340px]">
           {steps.map((step, index) => (
             <div key={step.number} className="flex items-center">
               <div className="flex flex-col items-center">
