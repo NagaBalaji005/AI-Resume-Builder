@@ -294,7 +294,7 @@ const FinalResume = ({ resumeData, selectedTemplate, onPrevious }) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-5xl mx-auto w-full px-2 sm:px-4 overflow-x-hidden">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Professional Resume</h2>
         <p className="text-lg text-gray-600">
