@@ -81,10 +81,10 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
           </div>
         </div>
         {/* Centered Stepper */}
-        <div className="flex items-center justify-center w-full overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50 pl-4 pr-4">
+        <div className="flex items-center justify-center w-full overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50 pr-4">
           <div className="flex items-center space-x-4 sm:space-x-8 max-w-full w-full px-1 sm:px-0 justify-center min-w-[340px]">
           {steps.map((step, index) => (
-            <div key={step.number} className="flex items-center">
+            <div key={step.number} className={`flex items-center${index === 0 ? ' ml-4 sm:ml-0' : ''}`}>
               <div className="flex flex-col items-center">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 ${
