@@ -1,29 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 600);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+};
 
 const ModernTechTemplate = ({ resumeData }) => {
+  const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, projects, certifications, achievements, languages } = resumeData;
 
   return (
-    <div data-resume-content style={{ 
-      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', 
-      backgroundColor: '#f5f5f5', 
-      color: '#333', 
-      lineHeight: '1.4', 
-      fontSize: '14px',
-      width: '210mm',
-      minHeight: '297mm',
+    <div data-resume-content style={{
+      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+      backgroundColor: '#f5f5f5',
+      color: '#333',
+      lineHeight: '1.4',
+      fontSize: isMobile ? '3.5vw' : '14px',
+      width: '100%',
+      maxWidth: isMobile ? '100vw' : '210mm',
+      minHeight: isMobile ? '100vh' : '297mm',
       margin: '0 auto',
-      position: 'relative'
+      position: 'relative',
+      padding: isMobile ? '3vw' : undefined,
+      boxSizing: 'border-box',
     }}>
-      <div style={{ 
-        width: '210mm', 
-        minHeight: '297mm', 
-        maxWidth: '210mm', 
-        margin: '0 auto', 
-        background: 'white', 
-        boxShadow: '0 0 20px rgba(0,0,0,0.1)', 
+      <div style={{
+        width: '100%',
+        minHeight: isMobile ? '100vh' : '297mm',
+        maxWidth: isMobile ? '100vw' : '210mm',
+        margin: '0 auto',
+        background: 'white',
+        boxShadow: '0 0 20px rgba(0,0,0,0.1)',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        boxSizing: 'border-box',
       }}>
         
         {/* Header Section */}
@@ -49,8 +65,19 @@ const ModernTechTemplate = ({ resumeData }) => {
         </div>
         
         {/* Main Content */}
-        <div style={{ display: 'flex', padding: '0 40px', minHeight: 'calc(297mm - 180px)' }}>
-          <div style={{ flex: '1.8', paddingRight: '25px' }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          padding: isMobile ? '3vw' : '0 40px',
+          minHeight: isMobile ? 'auto' : 'calc(297mm - 180px)',
+          boxSizing: 'border-box',
+        }}>
+          <div style={{
+            flex: '1.8',
+            paddingRight: isMobile ? 0 : '25px',
+            paddingBottom: isMobile ? '2vw' : 0,
+            boxSizing: 'border-box',
+          }}>
             
             {/* Summary */}
             {personalInfo.summary && (
@@ -88,7 +115,12 @@ const ModernTechTemplate = ({ resumeData }) => {
             )}
           </div>
           
-          <div style={{ flex: '1.2', paddingLeft: '25px', borderLeft: '1px solid #e5e7eb' }}>
+          <div style={{
+            flex: '1.2',
+            paddingLeft: isMobile ? 0 : '25px',
+            borderLeft: isMobile ? 'none' : '1px solid #e5e7eb',
+            boxSizing: 'border-box',
+          }}>
             
             {/* Projects */}
             {projects.length > 0 && (
