@@ -1,28 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 600);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+};
 
 const CreativeTemplate = ({ resumeData }) => {
+  const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, projects, certifications, achievements, languages, interests } = resumeData;
 
   return (
-    <div data-resume-content style={{ 
-      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', 
-      fontSize: '11px', 
-      lineHeight: '1.4', 
-      color: '#333', 
+    <div data-resume-content style={{
+      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+      fontSize: isMobile ? '3.5vw' : '11px',
+      lineHeight: '1.4',
+      color: '#333',
       background: '#ffffff',
-      width: '210mm',
-      minHeight: '297mm',
+      width: '100%',
+      maxWidth: isMobile ? '100vw' : '210mm',
+      minHeight: isMobile ? '100vh' : '297mm',
       margin: '0 auto',
-      position: 'relative'
+      position: 'relative',
+      padding: isMobile ? '3vw' : undefined,
+      boxSizing: 'border-box',
     }}>
-      <div style={{ 
-        width: '210mm', 
-        minHeight: '297mm', 
-        margin: '0 auto', 
-        background: 'white', 
-        boxShadow: '0 0 20px rgba(0,0,0,0.1)', 
+      <div style={{
+        width: '100%',
+        maxWidth: isMobile ? '100vw' : '210mm',
+        minHeight: isMobile ? '100vh' : '297mm',
+        margin: '0 auto',
+        background: 'white',
+        boxShadow: '0 0 20px rgba(0,0,0,0.1)',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        boxSizing: 'border-box',
       }}>
         
         {/* Header Section */}
@@ -57,8 +74,18 @@ const CreativeTemplate = ({ resumeData }) => {
         </div>
         
         {/* Main Content */}
-        <div style={{ display: 'flex', background: 'white', minHeight: 'calc(297mm - 120px)' }}>
-          <div style={{ flex: '2', padding: '25px 30px', background: '#fafafa' }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          background: 'white',
+          minHeight: isMobile ? 'auto' : 'calc(297mm - 120px)',
+        }}>
+          <div style={{
+            flex: '2',
+            padding: isMobile ? '3vw' : '25px 30px',
+            background: '#fafafa',
+            boxSizing: 'border-box',
+          }}>
             
             {/* Summary */}
             {personalInfo.summary && (
@@ -140,7 +167,12 @@ const CreativeTemplate = ({ resumeData }) => {
             )}
           </div>
           
-          <div style={{ flex: '1', padding: '25px 25px', background: 'white' }}>
+          <div style={{
+            flex: '1',
+            padding: isMobile ? '3vw' : '25px 25px',
+            background: 'white',
+            boxSizing: 'border-box',
+          }}>
             
             {/* Key Achievements */}
             {achievements.length > 0 && (
