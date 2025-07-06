@@ -102,9 +102,9 @@ const ContactModal = ({ isOpen, onClose, type }) => {
   );
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b border-gray-200">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-xs sm:max-w-md max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">
             {type === 'help' ? 'Help Center' : 'Contact Us'}
           </h2>
@@ -115,15 +115,13 @@ const ContactModal = ({ isOpen, onClose, type }) => {
             <X className="h-6 w-6" />
           </button>
         </div>
-        
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {type === 'help' ? helpCenterContent : contactUsContent}
         </div>
-        
-        <div className="flex justify-end p-6 border-t border-gray-200">
+        <div className="flex justify-end p-4 sm:p-6 border-t border-gray-200">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors w-full sm:w-auto"
           >
             Close
           </button>
