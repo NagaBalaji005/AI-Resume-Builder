@@ -56,7 +56,7 @@ const ModernTechTemplate = ({ resumeData }) => {
             {personalInfo.summary && (
               <div>
                 <h2 style={{ color: '#1f2937', fontSize: '1.1rem', fontWeight: '600', margin: '25px 0 15px 0', paddingBottom: '8px', borderBottom: '1px solid #d1d5db', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Summary</h2>
-                <p style={{ color: '#4b5563', lineHeight: '1.6', marginBottom: '15px', fontSize: '0.95rem' }}>{personalInfo.summary}</p>
+                <p style={{ color: '#4b5563', lineHeight: '1.7', marginBottom: '15px', fontSize: '0.95rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{personalInfo.summary}</p>
               </div>
             )}
             
@@ -97,7 +97,7 @@ const ModernTechTemplate = ({ resumeData }) => {
                 {projects.map((project, index) => (
                   <div key={index} style={{ marginBottom: '20px' }}>
                     <h3 style={{ color: '#2563eb', fontWeight: '600', fontSize: '1rem', marginBottom: '5px' }}>{project.title}</h3>
-                    <p style={{ color: '#4b5563', lineHeight: '1.5', marginBottom: '6px', fontSize: '0.9rem' }}>{project.description}</p>
+                    <p style={{ color: '#4b5563', lineHeight: '1.7', marginBottom: '6px', fontSize: '0.9rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{project.description}</p>
                     {project.link && (
                       <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', fontSize: '0.85rem', textDecoration: 'underline' }}>
                         {project.linkDisplayName ? project.linkDisplayName : project.link}
@@ -117,7 +117,7 @@ const ModernTechTemplate = ({ resumeData }) => {
                     <div style={{ color: '#2563eb', fontSize: '1.2rem', marginTop: '2px', flexShrink: '0' }}>{achievement.icon || '🏆'}</div>
                     <div style={{ flex: '1' }}>
                       <div style={{ color: '#1f2937', fontWeight: '600', marginBottom: '4px', fontSize: '0.95rem' }}>{achievement.title}</div>
-                      <div style={{ color: '#4b5563', lineHeight: '1.5', fontSize: '0.85rem' }}>{achievement.description}</div>
+                      <div style={{ color: '#4b5563', lineHeight: '1.5', fontSize: '0.85rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{achievement.description}</div>
                     </div>
                   </div>
                 ))}
@@ -128,7 +128,7 @@ const ModernTechTemplate = ({ resumeData }) => {
             {skills.length > 0 && (
               <div>
                 <h2 style={{ color: '#1f2937', fontSize: '1.1rem', fontWeight: '600', margin: '25px 0 15px 0', paddingBottom: '8px', borderBottom: '1px solid #d1d5db', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Skills</h2>
-                <div style={{ color: '#4b5563', lineHeight: '1.6', fontSize: '0.9rem' }}>
+                <div style={{ color: '#4b5563', lineHeight: '1.6', fontSize: '0.9rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>
                   <strong>Technical:</strong> {skills.slice(0, Math.ceil(skills.length/2)).join(', ')}<br/><br/>
                   <strong>Tools:</strong> {skills.slice(Math.ceil(skills.length/2)).join(', ')}
                 </div>
@@ -170,7 +170,7 @@ const ModernTechTemplate = ({ resumeData }) => {
         {resumeData.additionalInfo && resumeData.additionalInfo.trim() && (
           <div style={{ marginTop: '32px', paddingTop: '16px', borderTop: '2px solid #eee' }}>
             <div style={{ color: '#2563eb', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Additional Information</div>
-            <div style={{ fontSize: '0.95rem', color: '#333', whiteSpace: 'pre-line' }}>{resumeData.additionalInfo}</div>
+            <div style={{ fontSize: '0.95rem', color: '#333', whiteSpace: 'pre-line', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{resumeData.additionalInfo}</div>
           </div>
         )}
       </div>
