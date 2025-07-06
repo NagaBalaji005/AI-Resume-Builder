@@ -146,7 +146,7 @@ const UserInformation = ({ resumeData, setResumeData, selectedTemplate, onNext, 
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto w-full px-2 sm:px-4 overflow-x-hidden">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Tell Us About Yourself</h2>
         <p className="text-lg text-gray-600">
@@ -162,10 +162,10 @@ const UserInformation = ({ resumeData, setResumeData, selectedTemplate, onNext, 
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-8 w-full max-w-full">
         {/* Sidebar Navigation */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg p-6 sticky top-8">
+        <div className="lg:col-span-1 mb-4 lg:mb-0">
+          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 sticky top-8 w-full">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Resume Sections</h3>
             <nav className="space-y-2">
               {sections.map((section) => {
@@ -213,7 +213,7 @@ const UserInformation = ({ resumeData, setResumeData, selectedTemplate, onNext, 
         </div>
 
         {/* Main Form Area */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-3 w-full">
           <div className="bg-white rounded-xl shadow-lg p-8">
             {renderForm()}
           </div>
