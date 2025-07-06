@@ -491,7 +491,7 @@ const ATSRefining = ({ resumeData, setResumeData, onNext, onPrevious, selectedTe
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-5xl mx-auto w-full px-2 sm:px-4 overflow-x-hidden">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center">
           <Zap className="h-8 w-8 mr-3 text-yellow-500" />
