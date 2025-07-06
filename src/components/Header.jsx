@@ -84,7 +84,7 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
         <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50">
           <div className="flex items-center space-x-4 sm:space-x-8 w-full px-4 sm:px-0 sm:justify-center min-w-[640px] sm:min-w-0">
           {steps.map((step, index) => (
-            <div key={step.number} className="flex items-center">
+            <div key={step.number} className="flex items-start">
               <div className="flex flex-col items-center">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 ${
@@ -102,7 +102,7 @@ const Header = ({ currentStep, currentUser, onSignOut, isAuthenticated, onSignIn
               </div>
               {index < steps.length - 1 && (
                 <div
-                  className={`w-16 h-1 mx-4 transition-all duration-300 ${
+                  className={`w-16 h-1 mx-4 mt-5 transition-all duration-300 ${
                     currentStep > step.number ? 'bg-gradient-to-r from-blue-600 to-purple-600' : 'bg-gray-200'
                   }`}
                 />
