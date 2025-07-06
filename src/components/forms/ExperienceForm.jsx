@@ -181,7 +181,7 @@ const ExperienceForm = ({ resumeData, setResumeData }) => {
             </div>
 
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
@@ -192,7 +192,7 @@ const ExperienceForm = ({ resumeData, setResumeData }) => {
                   <span className="text-sm text-gray-700">I currently work here</span>
                 </label>
                 {!exp.current && (
-                  <div className="flex-1">
+                  <div className="w-full sm:w-auto">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       End Date *
                     </label>
