@@ -11,7 +11,7 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-const CreativeTemplate = ({ resumeData }) => {
+const CreativeTemplate = ({ resumeData, forceDesktopLayout = false }) => {
   const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, projects, certifications, achievements, languages, interests } = resumeData;
 
@@ -76,9 +76,9 @@ const CreativeTemplate = ({ resumeData }) => {
         {/* Main Content */}
         <div style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
+          flexDirection: forceDesktopLayout ? 'row' : (isMobile ? 'column' : 'row'),
           background: 'white',
-          minHeight: isMobile ? 'auto' : 'calc(297mm - 120px)',
+          minHeight: forceDesktopLayout ? 'calc(297mm - 120px)' : (isMobile ? 'auto' : 'calc(297mm - 120px)'),
         }}>
           <div style={{
             flex: '2',
