@@ -64,7 +64,7 @@ const CreativeTemplate = ({ resumeData }) => {
             {personalInfo.summary && (
               <div style={{ marginBottom: '25px' }}>
                 <h2 style={{ color: '#8B2635', fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px', paddingBottom: '6px', borderBottom: '2px solid #8B2635', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Summary</h2>
-                <p style={{ color: '#555', lineHeight: '1.5', fontSize: '0.9rem' }}>{personalInfo.summary}</p>
+                <p style={{ color: '#555', lineHeight: '1.7', fontSize: '0.9rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{personalInfo.summary}</p>
               </div>
             )}
             
@@ -80,7 +80,7 @@ const CreativeTemplate = ({ resumeData }) => {
                       <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>📅 {exp.startDate} - {exp.current ? 'Present' : exp.endDate}</span>
                       {exp.location && <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>📍 {exp.location}</span>}
                     </div>
-                    {exp.description && <p style={{ color: '#555', lineHeight: '1.5', marginBottom: '8px', fontSize: '0.9rem' }}>{exp.description}</p>}
+                    {exp.description && <p style={{ color: '#555', lineHeight: '1.7', marginBottom: '8px', fontSize: '0.95rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{exp.description}</p>}
                     {exp.achievements.length > 0 && (
                       <ul style={{ listStyle: 'none', marginLeft: '0' }}>
                         {exp.achievements.filter(ach => ach.trim()).map((achievement, achIndex) => (
@@ -104,7 +104,7 @@ const CreativeTemplate = ({ resumeData }) => {
                   <div key={index} style={{ marginBottom: '20px' }}>
                     <h3 style={{ color: '#8B2635', fontSize: '1rem', fontWeight: '600', marginBottom: '4px' }}>{project.title}</h3>
                     <div style={{ color: '#ff6b35', fontWeight: '500', marginBottom: '6px', fontSize: '0.9rem' }}>{project.technologies}</div>
-                    <p style={{ color: '#555', lineHeight: '1.5', marginBottom: '8px', fontSize: '0.9rem' }}>{project.description}</p>
+                    <p style={{ color: '#555', lineHeight: '1.7', marginBottom: '8px', fontSize: '0.95rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{project.description}</p>
                     {project.link && (
                       <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: '#ff6b35', fontSize: '0.85rem', textDecoration: 'underline' }}>
                         {project.linkDisplayName ? project.linkDisplayName : project.link}
@@ -150,7 +150,7 @@ const CreativeTemplate = ({ resumeData }) => {
                   <div key={index} style={{ marginBottom: '18px' }}>
                     <div style={{ color: '#ff6b35', fontSize: '1.2rem', marginBottom: '6px' }}>{achievement.icon || '🏆'}</div>
                     <div style={{ color: '#8B2635', fontWeight: '600', marginBottom: '6px', fontSize: '0.95rem' }}>{achievement.title}</div>
-                    <div style={{ color: '#555', lineHeight: '1.4', fontSize: '0.85rem' }}>{achievement.description}</div>
+                    <div style={{ color: '#555', lineHeight: '1.5', fontSize: '0.85rem', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{achievement.description}</div>
                   </div>
                 ))}
               </div>
@@ -215,7 +215,7 @@ const CreativeTemplate = ({ resumeData }) => {
         {resumeData.additionalInfo && resumeData.additionalInfo.trim() && (
           <div style={{ marginTop: '32px', paddingTop: '16px', borderTop: '2px solid #eee' }}>
             <div style={{ color: '#ff6b35', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Additional Information</div>
-            <div style={{ fontSize: '0.95rem', color: '#333', whiteSpace: 'pre-line' }}>{resumeData.additionalInfo}</div>
+            <div style={{ fontSize: '0.95rem', color: '#333', whiteSpace: 'pre-line', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{resumeData.additionalInfo}</div>
           </div>
         )}
       </div>
