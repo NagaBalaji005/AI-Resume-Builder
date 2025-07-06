@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicia Stephens - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+        
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+        
+        .header-content p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            background: #666;
+            flex-shrink: 0;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            background: white;
+            min-height: calc(297mm - 120px);
+        }
+        
+        .left-column {
+            flex: 2;
+            padding: 25px 30px;
+            background: #fafafa;
+        }
+        
+        .right-column {
+            flex: 1;
+            padding: 25px 25px;
+            background: white;
+        }
+        
+        /* Section Headers */
+        .section-title {
+            color: #8B2635;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #8B2635;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Experience Section */
+        .job {
+            margin-bottom: 25px;
+        }
+        
+        .job-title {
+            color: #8B2635;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .company {
+            color: #ff6b35;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            color: #666;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .job-description {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .job ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .job li {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .job li:before {
+            content: "•";
+            color: #ff6b35;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            margin-top: 25px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-item {
+            background: white;
+            padding: 8px 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            color: #555;
+            border: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+        }
+        
+        /* Right Column Sections */
+        .achievement-item {
+            margin-bottom: 18px;
+        }
+        
+        .achievement-icon {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        
+        .achievement-title {
+            color: #8B2635;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .achievement-description {
+            color: #555;
+            line-height: 1.4;
+            font-size: 0.85rem;
+        }
+        
+        /* Certifications */
+        .cert-item {
+            margin-bottom: 12px;
+        }
+        
+        .cert-name {
+            color: #ff6b35;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .cert-org {
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .degree {
+            color: #8B2635;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        
+        .university {
+            color: #ff6b35;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .education-meta {
+            color: #666;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        /* Passions */
+        .passion-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .passion-icon {
+            color: #ff6b35;
+            font-size: 1rem;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+                font-size: 10px;
+            }
+            
+            .resume-container {
+                width: 100%;
+                min-height: 100vh;
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .header {
+                padding: 20px 25px;
+            }
+            
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .left-column, .right-column {
+                padding: 20px 25px;
+            }
+            
+            .main-content {
+                min-height: calc(100vh - 100px);
+            }
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .resume-container {
+                width: 100%;
+                margin: 0;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1>Alicia Stephens</h1>
+                <p>I solve problems and help people overcome obstacles.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+91 123456789</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <span>alicia@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🔗</span>
+                        <span>https://www.linkedin.com/alicia</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>New York City, NY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-image"></div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="left-column">
+                <!-- Experience -->
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Senior IT Product Manager</h3>
+                        <div class="company">C Lab Services</div>
+                        <div class="job-meta">
+                            <span>📅 02/2010 - 04/2012</span>
+                            <span>📍 San Francisco, CA</span>
+                        </div>
+                        <p class="job-description">
+                            Rover Games is a multi-play mobile game app development firm that has successful titles such as Drink Something, Trivia Tonight and King's Fight
+                        </p>
+                        <ul>
+                            <li>Accelerated outbound sales cycle by 330% by designing and implementing customer acquisition platform for training and managing technical sales personnel</li>
+                            <li>Established and curated strategic partnerships with 6 out of 10 top state manufacturing companies which resulted in $20M additional annual revenue</li>
+                            <li>Led re-architect effort of a core SaaS product to reduce the platform deployment time for clients by 2 months</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Project Manager</h3>
+                        <div class="company">Tesla</div>
+                        <div class="job-meta">
+                            <span>📅 04/2012 - 03/2014</span>
+                            <span>📍 Los Angeles, CA</span>
+                        </div>
+                        <p class="job-description">
+                            Tesla is an electric vehicle manufacturer that is revolutionizing the automobile industry
+                        </p>
+                        <ul>
+                            <li>Lead a team of developers to build a proprietary CM system for enterprise and its strategic partners, optimizing sales process and increasing sales revenue by 24%</li>
+                            <li>Curated a $2M business implementation project that saves ~ $3.5M on operational inefficiencies between sales and development departments annually</li>
+                            <li>Collaborated with strategic manufacturing partners to develop an effective onboarding system, reducing the sales cycle by 3 months for global enterprise clients</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Unit Director</h3>
+                        <div class="company">Sunrise</div>
+                        <div class="job-meta">
+                            <span>📅 04/2014 - 09/2017</span>
+                            <span>📍 New York City, NY</span>
+                        </div>
+                        <ul>
+                            <li>Led a team of 16 engineers working on a new media library solution</li>
+                            <li>Managed the research and built the new pricing strategy</li>
+                            <li>Led the research for building the personal development platform Sunrise employees use currently</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tech Stack -->
+                <div class="tech-stack">
+                    <h2 class="section-title">Tech Stack</h2>
+                    <div class="tech-grid">
+                        <div class="tech-item">Zoho Sprints</div>
+                        <div class="tech-item">UseVoice</div>
+                        <div class="tech-item">Intercom</div>
+                        <div class="tech-item">VWO</div>
+                        <div class="tech-item">Taboola</div>
+                        <div class="tech-item">Stata</div>
+                        <div class="tech-item">Maven</div>
+                        <div class="tech-item">Jenkins</div>
+                        <div class="tech-item">Oracle</div>
+                        <div class="tech-item">Hotjar</div>
+                        <div class="tech-item">Jira</div>
+                        <div class="tech-item">Scrum</div>
+                        <div class="tech-item">SQL</div>
+                        <div class="tech-item">Product Development</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <!-- Key Achievements -->
+                <div class="section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🚀</div>
+                        <div class="achievement-title">Record Project Delivery</div>
+                        <div class="achievement-description">
+                            Facilitated the development of a full-featured SMB product in just 4 months.
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">💡</div>
+                        <div class="achievement-title">Mentoring</div>
+                        <div class="achievement-description">
+                            Implemented 1-on-1 meeting rhythm within my teams achieving high employee happiness and the longest retention rate.
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">⚡</div>
+                        <div class="achievement-title">Taking On Challenges</div>
+                        <div class="achievement-description">
+                            Moved to the USA and headed a project no current team leads wanted to work on, reaching 90% lead time predictability.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="section">
+                    <h2 class="section-title">Certifications</h2>
+                    
+                    <div class="cert-item">
+                        <div class="cert-name">Certified Scrum Product Owner & Professional</div>
+                        <div class="cert-org">Scrum Alliance</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-name">Agile Certified Practitioner</div>
+                        <div class="cert-org">Project Management Institute - PMI</div>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">MSc Project and Process Management</div>
+                        <div class="university">University of California, Berkeley</div>
+                        <div class="education-meta">
+                            <span>📅 10/2008 - 01/2010</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Science, Industrial Engineering</div>
+                        <div class="university">University of California, Berkeley</div>
+                        <div class="education-meta">
+                            <span>📅 09/2005 - 05/2008</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Passions -->
+                <div class="section">
+                    <h2 class="section-title">Passions</h2>
+                    
+                    <div class="passion-item">
+                        <div class="passion-icon">🏃</div>
+                        <span>Running</span>
+                    </div>
+                    
+                    <div class="passion-item">
+                        <div class="passion-icon">🏔️</div>
+                        <span>Adrenaline Sports</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Torres - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* A4 Page Setup */
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: none;
+                width: 100%;
+                min-height: 100vh;
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+        
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            max-width: 210mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        /* Header Section */
+        .header {
+            background: white;
+            padding: 30px 40px 20px 40px;
+        }
+        
+        .header h1 {
+            color: #1e3a8a;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .header .subtitle {
+            color: #60a5fa;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            padding: 0 40px;
+            min-height: calc(297mm - 180px);
+        }
+        
+        .left-column {
+            flex: 1.8;
+            padding-right: 25px;
+        }
+        
+        .right-column {
+            flex: 1.2;
+            padding-left: 25px;
+            border-left: 1px solid #e5e7eb;
+        }
+        
+        /* Section Headers */
+        .section-title {
+            color: #1f2937;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #d1d5db;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-title:first-child {
+            margin-top: 0;
+        }
+        
+        /* Summary */
+        .summary {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        /* Experience Section */
+        .job {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .job-title {
+            color: #2563eb;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .company {
+            color: #60a5fa;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .job ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .job li {
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .job li:before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Projects Section */
+        .project {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .project-title {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .project-description {
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .project-link {
+            color: #60a5fa;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Key Achievements */
+        .achievement-item {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            page-break-inside: avoid;
+        }
+        
+        .achievement-icon {
+            color: #2563eb;
+            font-size: 1.2rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .achievement-content {
+            flex: 1;
+        }
+        
+        .achievement-title {
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .achievement-description {
+            color: #4b5563;
+            line-height: 1.5;
+            font-size: 0.85rem;
+        }
+        
+        /* Skills */
+        .skills-list {
+            color: #4b5563;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+        
+        .degree {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        
+        .university {
+            color: #60a5fa;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .education-meta {
+            color: #6b7280;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            margin-top: auto;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-brand img {
+            height: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 800px) {
+            .resume-container {
+                width: 100%;
+                margin: 10px;
+                max-width: calc(100% - 20px);
+            }
+            
+            .main-content {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+            
+            .left-column, .right-column {
+                padding: 0;
+                border: none;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Print optimizations */
+        @media print {
+            .footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            
+            .main-content {
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>CHRISTIAN TORRES</h1>
+            <div class="subtitle">Technical Project Manager | Cloud Networking | Security</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+91 123456789</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <span>torres@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>linkedin.com/in/christian-torres</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Denver, Colorado</span>
+                </div>
+                <div class="contact-item">
+                    <span>⭐</span>
+                    <span>Portfolio: christiantorres.dev</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="left-column">
+                <!-- Summary -->
+                <div class="section">
+                    <h2 class="section-title">Summary</h2>
+                    <p class="summary">
+                        Technical Project Manager with 8+ years of experience in cloud networking and security solutions. Proven expertise in project coordination, risk management, and cross-functional team leadership, consistently delivering complex SD-WAN deployments on time and within budget. Track record of improving project outcomes and client satisfaction through strategic planning and effective stakeholder communication.
+                    </p>
+                </div>
+                
+                <!-- Experience -->
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Technical Project Manager</h3>
+                        <div class="company">CenturyLink</div>
+                        <div class="job-meta">
+                            <span>📅 05/2019 - 09/2023</span>
+                            <span>📍 Denver, Colorado</span>
+                        </div>
+                        <ul>
+                            <li>Led cross-functional teams to deliver 60+ SD-WAN projects, reducing delivery time by 20% and enhancing client satisfaction ratings to 95%</li>
+                            <li>Crafted detailed project plans for complex cloud networking solutions, achieving 10% cost reduction across portfolio</li>
+                            <li>Efficiently managed project budgets up to $5M, implementing forecasting models that improved budget accuracy by 15%</li>
+                            <li>Facilitated weekly client meetings and stakeholder communications, ensuring project alignment and proactive issue resolution</li>
+                            <li>Implemented comprehensive risk management strategies that decreased project issues by 30% year-over-year</li>
+                            <li>Coordinated with engineering, sales, and operations teams to ensure seamless project execution and knowledge transfer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Network Solutions Architect</h3>
+                        <div class="company">Verizon</div>
+                        <div class="job-meta">
+                            <span>📅 02/2016 - 04/2019</span>
+                            <span>📍 Boulder, Colorado</span>
+                        </div>
+                        <ul>
+                            <li>Designed and implemented advanced security architectures, improving network assurance metrics by 40% annually</li>
+                            <li>Collaborated with sales and business development teams, driving 15% growth in network service adoption globally</li>
+                            <li>Optimized telecommunication solutions and network performance, leading to 25% increase in service efficiency</li>
+                            <li>Provided technical leadership on global infrastructure projects, successful implementations across 50+ cities</li>
+                            <li>Contributed to product development initiatives, resulting in the launch of three new market-leading network solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Telecommunications Engineer</h3>
+                        <div class="company">AT&T</div>
+                        <div class="job-meta">
+                            <span>📅 01/2013 - 01/2016</span>
+                            <span>📍 Aurora, Colorado</span>
+                        </div>
+                        <ul>
+                            <li>Engineered scalable telecommunications systems supporting infrastructure serving 100,000+ end users</li>
+                            <li>Collaborated with software engineering teams to design solutions, achieving 30% performance improvement</li>
+                            <li>Analyzed network performance data and provided actionable insights for infrastructure optimization</li>
+                            <li>Participated in technical workshops and training programs, enhancing team capabilities and product knowledge</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <!-- Projects -->
+                <div class="section">
+                    <h2 class="section-title">Projects</h2>
+                    
+                    <div class="project">
+                        <h3 class="project-title">SD-WAN Optimization Tool</h3>
+                        <p class="project-description">
+                            Developed a comprehensive network monitoring tool that improved performance metrics by 35% through real-time analytics and automated optimization recommendations.
+                        </p>
+                        <a href="#" class="project-link">github.com/christian-torres/sdwan-optimization</a>
+                    </div>
+                    
+                    <div class="project">
+                        <h3 class="project-title">Secure Cloud Networking Platform</h3>
+                        <p class="project-description">
+                            Led the architecture and development of a cloud security integration platform, reducing security incident response time by 50%.
+                        </p>
+                        <a href="#" class="project-link">github.com/christian-torres/cloud-security</a>
+                    </div>
+                </div>
+                
+                <!-- Key Achievements -->
+                <div class="section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">Project Excellence Award</div>
+                            <div class="achievement-description">
+                                Recognized for delivering 60+ projects with 95% client satisfaction and zero critical incidents.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">⚡</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">Network Performance Leader</div>
+                            <div class="achievement-description">
+                                Spearheaded initiatives resulting in 30% improvement in network response times across multiple data centers.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">💰</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">Cost Optimization Expert</div>
+                            <div class="achievement-description">
+                                Reduced project costs by $1M through strategic resource management and process improvements.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">☁️</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">Cloud Strategy Champion</div>
+                            <div class="achievement-description">
+                                Championed cloud adoption strategies, improving service scalability and efficiency by 20%.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills -->
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-list">
+                        <strong>Technical:</strong> SD-WAN, Cloud Security, Network Architecture, Risk Management<br><br>
+                        <strong>Tools:</strong> MS Project, Jira, Visio, Terraform, AWS, Azure<br><br>
+                        <strong>Management:</strong> Agile/Scrum, Budget Forecasting, Stakeholder Management, Team Leadership
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">Master of Science in Telecommunications</div>
+                        <div class="university">University of Colorado Boulder</div>
+                        <div class="education-meta">
+                            <span>📅 2014 - 2016</span>
+                            <span>📍 Boulder, CO</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Science in Computer Engineering</div>
+                        <div class="university">Colorado State University</div>
+                        <div class="education-meta">
+                            <span>📅 2009 - 2013</span>
+                            <span>📍 Fort Collins, CO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        

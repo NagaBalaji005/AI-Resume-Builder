@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* A4 Page Setup */
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                padding: 15px;
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .project-item {
+                page-break-inside: avoid;
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
+        
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .location {
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .contact-info {
+            font-size: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Career Objective */
+        .objective-text {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #000;
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .education-content {
+            flex: 1;
+        }
+        
+        .institution {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+        
+        .degree {
+            font-style: italic;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        .date-grade {
+            text-align: right;
+            font-size: 11px;
+            min-width: 120px;
+        }
+        
+        .date {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        
+        .grade {
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Projects */
+        .project-item {
+            margin-bottom: 18px;
+            border-left: 2px solid #f0f0f0;
+            padding-left: 12px;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .project-title-tech {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            font-size: 13px;
+            display: inline;
+        }
+        
+        .project-tech {
+            font-style: italic;
+            font-size: 11px;
+            color: #555;
+            margin-left: 5px;
+        }
+        
+        .github-link {
+            font-size: 11px;
+            color: #000;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-points {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-points li {
+            font-size: 11px;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 12px;
+            text-align: justify;
+        }
+        
+        .project-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px 15px;
+            font-size: 11px;
+        }
+        
+        .skills-item {
+            position: relative;
+            padding-left: 12px;
+        }
+        
+        .skills-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Certifications */
+        .certifications-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .certifications-list li {
+            font-size: 11px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 12px;
+            text-align: justify;
+        }
+        
+        .certifications-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .certifications-list strong {
+            color: #000;
+        }
+        
+        /* Accomplishments */
+        .accomplishments-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .accomplishments-list li {
+            font-size: 11px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 12px;
+            text-align: justify;
+        }
+        
+        .accomplishments-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .accomplishments-list strong {
+            color: #000;
+        }
+        
+        /* Soft Skills Grid */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 8px 15px;
+            font-size: 11px;
+        }
+        
+        .trait-item {
+            position: relative;
+            padding-left: 12px;
+        }
+        
+        .trait-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+                max-width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .education-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .date-grade {
+                text-align: left;
+                min-width: auto;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .project-title-tech {
+                min-width: auto;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 6px 10px;
+            }
+            
+            .traits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 6px 10px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .name {
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+            
+            .section-title {
+                font-size: 14px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .traits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name">Student Name</div>
+        <div class="location">📍 City, State, Country</div>
+        <div class="contact-info">
+            <span>📧 email@gmail.com</span>
+            <span>📞 +91 9876543210</span>
+            <span>🔗 linkedin.com/in/username</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Career Objective</div>
+        <p class="objective-text">
+            To secure a challenging position in a reputable organization to expand my learnings, knowledge, and skills. Seeking an entry-level position to begin my career in a high-level professional environment where I can utilize my skills and knowledge to contribute to the organization's growth and success.
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="education-item">
+            <div class="education-content">
+                <div class="institution">Stanford University</div>
+                <div class="degree">Bachelor of Technology - Computer Science Engineering</div>
+            </div>
+            <div class="date-grade">
+                <div class="date">2021 – 2025</div>
+                <div class="grade">CGPA - 9.04</div>
+            </div>
+        </div>
+        <div class="education-item">
+            <div class="education-content">
+                <div class="institution">Priston College</div>
+                <div class="degree">Class XII - MPC</div>
+            </div>
+            <div class="date-grade">
+                <div class="date">2019 – 2021</div>
+                <div class="grade">97.5%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Projects</div>
+        
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title-tech">
+                    <span class="project-title">Job Eligibility Tracker</span>
+                    <span class="project-tech">| NextJS, TypeScript, Tailwind, Server Components, ShadcnUI, Mongoose</span>
+                </div>
+                <a href="#" class="github-link">🐙 GitHub</a>
+            </div>
+            <ul class="project-points">
+                <li>Developed an eligibility checker system tailored for students seeking job opportunities, leveraging their academic performance metrics and technical skills.</li>
+                <li>Provides instant feedback to students regarding their eligibility status for specific job openings with real-time validation.</li>
+                <li>Placement officers can add new openings in different companies that are coming to the campus with comprehensive filtering options.</li>
+                <li>Implemented secure authentication and role-based access control for students and placement officers.</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title-tech">
+                    <span class="project-title">AI Code Generator Wallet</span>
+                    <span class="project-tech">| NextJS, OpenAI, TypeScript, TailwindCSS</span>
+                </div>
+                <a href="#" class="github-link">🐙 GitHub</a>
+            </div>
+            <ul class="project-points">
+                <li>Implemented intelligent code generation tool using OpenAI's API with an appealing and intuitive User Interface.</li>
+                <li>Crafted code execution feature using Judge0 API to provide instant output for the generated code with multiple language support.</li>
+                <li>Solved complex problems related to asynchronous tasks and API rate limiting for optimal user experience.</li>
+                <li>Won Second Prize in Hackathon event conducted at Stanford University among 200+ participants.</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title-tech">
+                    <span class="project-title">Glaucoma Detection System</span>
+                    <span class="project-tech">| Python, Machine Learning Algorithms, OpenCV</span>
+                </div>
+                <a href="#" class="github-link">🐙 GitHub</a>
+            </div>
+            <ul class="project-points">
+                <li>Developed a machine learning model to accurately detect glaucoma from retinal images, aimed at early diagnosis and prevention of vision loss.</li>
+                <li>Preprocessed large datasets of retinal images, including data augmentation and normalization, to enhance model performance and generalization.</li>
+                <li>Implemented ensemble methods combining KNN, Random Forests, AdaBoost and SVM, achieving 94% accuracy in glaucoma detection.</li>
+                <li>Created a user-friendly interface for healthcare professionals to upload and analyze retinal images efficiently.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div class="skills-item">Java</div>
+            <div class="skills-item">Python</div>
+            <div class="skills-item">C++</div>
+            <div class="skills-item">HTML, CSS, JS</div>
+            <div class="skills-item">SQL</div>
+            <div class="skills-item">Git/GitHub</div>
+            <div class="skills-item">ReactJS</div>
+            <div class="skills-item">AngularJS</div>
+            <div class="skills-item">MongoDB</div>
+            <div class="skills-item">AWS</div>
+            <div class="skills-item">Node.js</div>
+            <div class="skills-item">Docker</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Certifications</div>
+        <ul class="certifications-list">
+            <li>Skill Badges in <strong>AWS Cloud Architecting, Cloud Developing, Cloud Foundations</strong> by Amazon Web Services.</li>
+            <li>NPTEL certified in <strong>Data Structures and Algorithms, Computer Networks and Internet Protocols</strong>.</li>
+            <li>Skill Badges in <strong>Web Development, Data Fundamentals, Cybersecurity</strong> by IBM.</li>
+            <li>HackerRank certified in <strong>Java, Python, Problem Solving</strong> with 5-star ratings.</li>
+            <li>Completed MathWorks virtual internship on <strong>"Getting Started with Artificial Intelligence"</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Accomplishments</div>
+        <ul class="accomplishments-list">
+            <li>Working as the <strong>Chapter Lead</strong> for GeeksforGeeks Local Chapter, managing a team of 25+ members.</li>
+            <li>Organized 15+ coding competitions, 3 technical workshops, 2 hackathon events and an ideathon event in the college.</li>
+            <li><strong>2★ Coder</strong> in CodeChef with highest rating of 1847 and global rank under 10,000.</li>
+            <li>Solved 350+ problems on LeetCode with focus on data structures and algorithms optimization.</li>
+            <li>Mentored 20+ junior students in competitive programming and web development.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Soft Skills</div>
+        <div class="traits-grid">
+            <div class="trait-item">Self-motivated</div>
+            <div class="trait-item">Time Management</div>
+            <div class="trait-item">Ethical</div>
+            <div class="trait-item">Resilience</div>
+            <div class="trait-item">Emotional Intelligence</div>
+            <div class="trait-item">Leadership</div>
+            <div class="trait-item">Adaptability</div>
+            <div class="trait-item">Flexibility</div>
+        </div>
+    </div>
+</body>
+</html>

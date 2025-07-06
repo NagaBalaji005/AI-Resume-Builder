@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrie Jones - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* A4 Page Setup */
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+            }
+            
+            .container {
+                gap: 20px;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+                margin-bottom: 15px;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #fff;
+            padding: 20px;
+            max-width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: 0 auto;
+            font-size: 13px;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+        
+        .left-column {
+            padding-right: 15px;
+        }
+        
+        .right-column {
+            padding-left: 15px;
+        }
+        
+        .header {
+            margin-bottom: 25px;
+            grid-column: 1 / -1;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: 900;
+            color: #000;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 16px;
+            color: #2E86AB;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            font-size: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: #666;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 900;
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 3px;
+            letter-spacing: 0.5px;
+        }
+        
+        .job {
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 3px;
+        }
+        
+        .company {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2E86AB;
+            margin-bottom: 3px;
+        }
+        
+        .job-meta {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .job-points {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .job-points li {
+            font-size: 12px;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 12px;
+            line-height: 1.4;
+        }
+        
+        .job-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2E86AB;
+            font-weight: bold;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .degree {
+            font-size: 13px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 3px;
+        }
+        
+        .school {
+            font-size: 12px;
+            font-weight: 600;
+            color: #2E86AB;
+            margin-bottom: 3px;
+        }
+        
+        .education-meta {
+            font-size: 11px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .education-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .summary-text {
+            font-size: 12px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        
+        .achievements-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .achievements-list li {
+            font-size: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .achievement-icon {
+            color: #2E86AB;
+            font-size: 14px;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+        
+        .achievement-text {
+            flex: 1;
+        }
+        
+        .achievement-title {
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2px;
+            font-size: 12px;
+        }
+        
+        .achievement-desc {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .skills-list span {
+            background: #f0f0f0;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            white-space: nowrap;
+        }
+        
+        .time-chart {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .donut-chart {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #2E86AB 0deg 60deg,
+                #5DADE2 60deg 120deg,
+                #85C1E9 120deg 180deg,
+                #AED6F1 180deg 240deg,
+                #D6EAF8 240deg 300deg,
+                #EBF5FB 300deg 360deg
+            );
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .donut-chart::before {
+            content: '';
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .chart-labels {
+            margin-top: 15px;
+            font-size: 10px;
+        }
+        
+        .chart-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+        
+        .label-letter {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #2E86AB;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+        
+        .label-letter.b { background: #5DADE2; }
+        .label-letter.c { background: #85C1E9; }
+        .label-letter.d { background: #AED6F1; }
+        .label-letter.e { background: #D6EAF8; }
+        .label-letter.f { background: #EBF5FB; color: #333; }
+        
+        .languages-section {
+            margin-bottom: 20px;
+        }
+        
+        .language-item {
+            margin-bottom: 12px;
+        }
+        
+        .language-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .language-level {
+            font-size: 10px;
+            color: #666;
+        }
+        
+        .language-bars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .language-bar {
+            width: 16px;
+            height: 6px;
+            border-radius: 2px;
+            background: #e0e0e0;
+        }
+        
+        .language-bar.filled {
+            background: #2E86AB;
+        }
+        
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .cert-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #2E86AB;
+        }
+        
+        .cert-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #2E86AB;
+            margin-bottom: 4px;
+        }
+        
+        .cert-desc {
+            font-size: 10px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 12px;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .left-column,
+            .right-column {
+                padding: 0;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .title {
+                font-size: 14px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name">Carrie Jones</div>
+        <div class="title">Product Manager | Strategy & Innovation</div>
+        <div class="contact-info">
+            <span>📧 carrie@gmail.com</span>
+            <span>🔗 linkedin.com/in/carriejo</span>
+            <span>📍 San Francisco, California</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-column">
+            <div class="section">
+                <div class="section-title">Experience</div>
+                
+                <div class="job">
+                    <div class="job-title">Senior Product Manager</div>
+                    <div class="company">Plaid</div>
+                    <div class="job-meta">
+                        <span>🏢 01/2021 - Present</span>
+                        <span>📍 San Francisco, California</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Led the development and launch of a new financial data integration platform, increasing market penetration by 25% within the first year.</li>
+                        <li>Managed a cross-functional team of 10, including engineers and designers, to deliver the project on time and under budget.</li>
+                        <li>Implemented a customer feedback loop that resulted in a 40% improvement in customer satisfaction scores.</li>
+                        <li>Conducted competitive analysis to inform product positioning, leading to a 15% increase in product adoption.</li>
+                        <li>Negotiated partnerships with key financial institutions, expanding the platform's reach and functionality.</li>
+                        <li>Developed and executed a go-to-market strategy that resulted in the product being featured in major tech publications.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-title">Product Manager</div>
+                    <div class="company">Stripe</div>
+                    <div class="job-meta">
+                        <span>🏢 06/2018 - 12/2020</span>
+                        <span>📍 San Francisco, California</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Oversaw the development of a new payment processing feature, resulting in a 20% increase in transaction volume.</li>
+                        <li>Collaborated with the engineering team to streamline the development process, reducing time to market by 30%.</li>
+                        <li>Led user research initiatives that informed product improvements, enhancing user experience and satisfaction.</li>
+                        <li>Managed product backlog and prioritization, ensuring alignment with strategic business goals.</li>
+                        <li>Facilitated cross-departmental communication to align product development with marketing and sales strategies.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-title">Associate Product Manager</div>
+                    <div class="company">Salesforce</div>
+                    <div class="job-meta">
+                        <span>🏢 03/2016 - 05/2018</span>
+                        <span>📍 San Francisco, California</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Contributed to the development of a CRM feature that increased user engagement by 30%.</li>
+                        <li>Assisted in conducting market research and analysis to guide product development strategies.</li>
+                        <li>Supported senior product managers in roadmap planning and execution.</li>
+                        <li>Participated in agile development processes, contributing to sprint planning and review meetings.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Education</div>
+                
+                <div class="education-item">
+                    <div class="degree">Master of Business Administration (MBA)</div>
+                    <div class="school">Stanford University</div>
+                    <div class="education-meta">
+                        <span>🏢 01/2014 - 01/2016</span>
+                        <span>📍 Stanford, California</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="degree">Bachelor of Science in Computer Science</div>
+                    <div class="school">University of California, Berkeley</div>
+                    <div class="education-meta">
+                        <span>🏢 01/2010 - 01/2014</span>
+                        <span>📍 Berkeley, California</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Languages</div>
+                
+                <div class="language-item">
+                    <div class="language-name">
+                        <span>English</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-bars">
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar filled"></div>
+                    </div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-name">
+                        <span>Spanish</span>
+                        <span class="language-level">Advanced</span>
+                    </div>
+                    <div class="language-bars">
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar filled"></div>
+                        <div class="language-bar"></div>
+                        <div class="language-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Certification</div>
+                
+                <div class="certifications-list">
+                    <div class="cert-item">
+                        <div class="cert-title">Certified ScrumMaster (CSM)</div>
+                        <div class="cert-desc">Gained expertise in Scrum methodologies and agile project management from Scrum Alliance.</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">User Experience Design</div>
+                        <div class="cert-desc">Completed a comprehensive course on UX design principles and practices from Coursera.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="section">
+                <div class="section-title">Summary</div>
+                <div class="summary-text">
+                    With over 5 years of experience in product management, I have a proven track record of driving product strategy and innovation. My expertise in leading cross-functional teams to deliver impactful products aligns with my passion for creating solutions that meet user needs and business goals.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Achievements</div>
+                <ul class="achievements-list">
+                    <li>
+                        <span class="achievement-icon">💎</span>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Launched Financial Data Platform</div>
+                            <div class="achievement-desc">Led the successful launch of a financial data integration platform at Plaid, significantly increasing market penetration.</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="achievement-icon">⭐</span>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Improved Customer Satisfaction</div>
+                            <div class="achievement-desc">Implemented a customer feedback loop at Plaid, improving customer satisfaction scores by 40%.</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="achievement-icon">🔧</span>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Increased Transaction Volume</div>
+                            <div class="achievement-desc">Developed a new payment processing feature at Stripe, leading to a 20% increase in transaction volume.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Skills</div>
+                <div class="skills-list">
+                    <span>Product Strategy</span>
+                    <span>Market Analysis</span>
+                    <span>Cross-functional Team Leadership</span>
+                    <span>Agile & Scrum Methodologies</span>
+                    <span>User Experience Design</span>
+                    <span>Data Analysis</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">My Time</div>
+                <div class="time-chart">
+                    <div class="donut-chart"></div>
+                </div>
+                <div class="chart-labels">
+                    <div class="chart-label">
+                        <div class="label-letter">A</div>
+                        <span>Product roadmap planning</span>
+                    </div>
+                    <div class="chart-label">
+                        <div class="label-letter b">B</div>
+                        <span>QA work</span>
+                    </div>
+                    <div class="chart-label">
+                        <div class="label-letter c">C</div>
+                        <span>User interviews, research</span>
+                    </div>
+                    <div class="chart-label">
+                        <div class="label-letter d">D</div>
+                        <span>Mentoring my team of 10</span>
+                    </div>
+                    <div class="chart-label">
+                        <div class="label-letter e">E</div>
+                        <span>Cooking quesadillas with my cat</span>
+                    </div>
+                    <div class="chart-label">
+                        <div class="label-letter f">F</div>
+                        <span>Recharging in nature</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
