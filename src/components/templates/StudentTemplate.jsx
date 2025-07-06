@@ -43,7 +43,7 @@ const StudentTemplate = ({ resumeData }) => {
       {personalInfo.summary && (
         <div style={{ marginBottom: '20px' }}>
           <div style={{ fontSize: '15px', fontWeight: 'bold', borderBottom: '1px solid #000', paddingBottom: '3px', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Career Objective</div>
-          <p style={{ fontSize: '12px', lineHeight: '1.5', color: '#000', textAlign: 'justify', marginBottom: '5px' }}>{personalInfo.summary}</p>
+          <p style={{ fontSize: '12px', lineHeight: '1.7', color: '#000', textAlign: 'justify', marginBottom: '5px', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{personalInfo.summary}</p>
         </div>
       )}
 
@@ -83,11 +83,11 @@ const StudentTemplate = ({ resumeData }) => {
                   </a>
                 )}
               </div>
-              {project.description && <p style={{ fontSize: '11px', lineHeight: '1.4', marginBottom: '6px', textAlign: 'justify' }}>{project.description}</p>}
+              {project.description && <p style={{ fontSize: '11px', lineHeight: '1.7', marginBottom: '6px', textAlign: 'justify', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{project.description}</p>}
               {project.achievements.length > 0 && (
                 <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
                   {project.achievements.filter(ach => ach.trim()).map((achievement, achIndex) => (
-                    <li key={achIndex} style={{ fontSize: '11px', lineHeight: '1.4', marginBottom: '4px', position: 'relative', paddingLeft: '12px', textAlign: 'justify' }}>
+                    <li key={achIndex} style={{ fontSize: '11px', lineHeight: '1.7', marginBottom: '4px', position: 'relative', paddingLeft: '12px', textAlign: 'justify', wordBreak: 'break-word', letterSpacing: '0.02em' }}>
                       <span style={{ content: '\u2022', position: 'absolute', left: '0', fontWeight: 'bold' }}>•</span>
                       {achievement}
                     </li>
@@ -114,11 +114,11 @@ const StudentTemplate = ({ resumeData }) => {
                   {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
                 </div>
               </div>
-              {exp.description && <p style={{ fontSize: '11px', lineHeight: '1.4', marginBottom: '6px', textAlign: 'justify' }}>{exp.description}</p>}
+              {exp.description && <p style={{ fontSize: '11px', lineHeight: '1.7', marginBottom: '6px', textAlign: 'justify', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{exp.description}</p>}
               {exp.achievements.length > 0 && (
                 <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
                   {exp.achievements.filter(ach => ach.trim()).map((achievement, achIndex) => (
-                    <li key={achIndex} style={{ fontSize: '11px', lineHeight: '1.4', marginBottom: '4px', position: 'relative', paddingLeft: '12px', textAlign: 'justify' }}>
+                    <li key={achIndex} style={{ fontSize: '11px', lineHeight: '1.7', marginBottom: '4px', position: 'relative', paddingLeft: '12px', textAlign: 'justify', wordBreak: 'break-word', letterSpacing: '0.02em' }}>
                       <span style={{ content: '•', position: 'absolute', left: '0', fontWeight: 'bold' }}>•</span>
                       {achievement}
                     </li>
@@ -193,7 +193,7 @@ const StudentTemplate = ({ resumeData }) => {
       {resumeData.additionalInfo && resumeData.additionalInfo.trim() && (
         <div style={{ marginTop: '32px', paddingTop: '16px', borderTop: '2px solid #eee' }}>
           <div style={{ fontSize: '15px', fontWeight: 'bold', color: '#667eea', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Additional Information</div>
-          <div style={{ fontSize: '12px', color: '#333', whiteSpace: 'pre-line' }}>{resumeData.additionalInfo}</div>
+          <div style={{ fontSize: '12px', color: '#333', whiteSpace: 'pre-line', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{resumeData.additionalInfo}</div>
         </div>
       )}
     </div>
