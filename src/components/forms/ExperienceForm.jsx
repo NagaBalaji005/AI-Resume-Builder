@@ -234,18 +234,18 @@ const ExperienceForm = ({ resumeData, setResumeData }) => {
               </button>
             </div>
             {exp.achievements.map((achievement, achIndex) => (
-              <div key={achIndex} className="flex items-center space-x-2 mb-2">
+              <div key={achIndex} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mb-2 w-full">
                 <input
                   type="text"
                   value={achievement}
                   onChange={(e) => updateAchievement(exp.id, achIndex, e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Describe a key achievement or responsibility..."
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                  placeholder="Key achievement or responsibility"
                 />
                 {exp.achievements.length > 1 && (
                   <button
                     onClick={() => removeAchievement(exp.id, achIndex)}
-                    className="text-red-600 hover:text-red-700 p-2"
+                    className="text-red-600 hover:text-red-700 p-2 w-full sm:w-auto"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
