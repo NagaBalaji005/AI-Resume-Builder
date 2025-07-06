@@ -50,18 +50,18 @@ const InterestsForm = ({ resumeData, setResumeData }) => {
         </p>
       </div>
 
-      <div className="flex space-x-2">
+      <div className="flex flex-col sm:flex-row gap-2 w-full">
         <input
           type="text"
           value={newInterest}
           onChange={(e) => setNewInterest(e.target.value)}
           onKeyPress={handleKeyPress}
-          className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
           placeholder="Enter an interest or hobby"
         />
         <button
           onClick={addInterest}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 w-full sm:w-auto"
         >
           <Plus className="h-4 w-4" />
           <span>Add</span>
