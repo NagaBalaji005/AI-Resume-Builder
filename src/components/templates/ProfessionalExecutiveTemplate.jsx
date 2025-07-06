@@ -11,7 +11,7 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-const ProfessionalExecutiveTemplate = ({ resumeData }) => {
+const ProfessionalExecutiveTemplate = ({ resumeData, forceDesktopLayout = false }) => {
   const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, achievements, certifications, languages, timeManagement, interests } = resumeData;
 
@@ -53,8 +53,8 @@ const ProfessionalExecutiveTemplate = ({ resumeData }) => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr',
-        gap: isMobile ? '15px' : '30px',
+        gridTemplateColumns: forceDesktopLayout ? '2fr 1fr' : (isMobile ? '1fr' : '2fr 1fr'),
+        gap: forceDesktopLayout ? '30px' : (isMobile ? '15px' : '30px'),
         height: '100%',
         boxSizing: 'border-box',
       }}>
