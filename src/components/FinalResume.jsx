@@ -393,21 +393,19 @@ const FinalResume = ({ resumeData, selectedTemplate, onPrevious }) => {
       </div>
 
       {/* Navigation */}
-      <div className="flex flex-col sm:flex-row justify-center items-center mt-8 gap-2 sm:gap-0 w-full">
+      <div className="flex flex-col sm:flex-row justify-center items-center mt-8 gap-y-2 sm:gap-x-8 w-full">
         <button
           onClick={onPrevious}
           className="w-full sm:w-auto flex items-center justify-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
         >
           <span>Previous</span>
         </button>
-
         <div className="text-center">
           <p className="text-sm text-gray-500 mb-2">Step 4 of 4</p>
           <div className="w-64 bg-gray-200 rounded-full h-2">
             <div className="bg-blue-600 h-2 rounded-full w-full"></div>
           </div>
         </div>
-
         <div className="flex items-center space-x-2 text-green-600">
           <FileText className="h-5 w-5" />
           <span className="font-medium">Resume Complete!</span>
