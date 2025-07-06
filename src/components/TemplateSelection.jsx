@@ -46,25 +46,25 @@ const TemplateSelection = ({ onTemplateSelect }) => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto w-full px-2 sm:px-4 overflow-x-hidden">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Perfect Template</h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
           Select from our professionally designed, ATS-optimized templates. Each template is crafted to help you stand out while ensuring compatibility with applicant tracking systems.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-full w-full mx-auto">
         {templates.map((template) => {
           const IconComponent = template.icon;
           return (
             <div
               key={template.id}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer border border-gray-100"
+              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer border border-gray-100 w-full"
               onClick={() => onTemplateSelect(template.id)}
             >
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2 sm:gap-0">
                   <div className="flex items-center space-x-3">
                     <div className={`p-2 rounded-xl bg-gradient-to-r ${template.color} shadow-lg`}>
                       <IconComponent className="h-5 w-5 text-white" />
@@ -76,15 +76,15 @@ const TemplateSelection = ({ onTemplateSelect }) => {
                       <p className="text-sm text-gray-600 mt-1">{template.description}</p>
                     </div>
                   </div>
-                  <Eye className="h-4 w-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                  <Eye className="h-4 w-4 text-gray-400 group-hover:text-blue-600 transition-colors hidden sm:block" />
                 </div>
 
                 <div className="mb-4">
-                  <div className="bg-gray-50 rounded-lg p-3 h-96 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
+                  <div className="bg-gray-50 rounded-lg p-2 sm:p-3 h-48 sm:h-96 flex items-center justify-center border-2 border-gray-200 overflow-hidden w-full">
                     <img 
                       src={template.image} 
                       alt={`${template.name} template preview`}
-                      className="w-full h-full object-contain rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                      className="w-full h-auto max-h-40 sm:max-h-96 object-contain rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                     />
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const TemplateSelection = ({ onTemplateSelect }) => {
       </div>
 
       <div className="mt-12 text-center">
-        <div className="bg-blue-50 rounded-2xl p-8 border border-blue-100">
+        <div className="bg-blue-50 rounded-2xl p-4 sm:p-8 border border-blue-100 w-full max-w-full">
           <h3 className="text-2xl font-bold text-blue-900 mb-4">Why Our Templates Work</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
