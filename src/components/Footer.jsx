@@ -17,8 +17,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white w-full overflow-x-hidden">
-      <div className="container mx-auto px-2 sm:px-4 py-8 sm:py-12 w-full max-w-full">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 w-full max-w-full">
+      <div className="container mx-auto px-2 sm:px-4 py-8 sm:py-12 w-full max-w-full text-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 w-full max-w-full text-center place-items-center">
           {/* Brand Section */}
           <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
@@ -106,7 +106,7 @@ const Footer = () => {
 
         {/* Stats Section */}
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 text-center w-full max-w-full">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 text-center w-full max-w-full place-items-center">
             <div>
               <div className="text-2xl font-bold text-blue-400">10K+</div>
               <div className="text-gray-400 text-sm">Resumes Created</div>
