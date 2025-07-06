@@ -54,7 +54,7 @@ const ProfessionalExecutiveTemplate = ({ resumeData }) => {
                     <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>🏢 {exp.startDate} - {exp.current ? 'Present' : exp.endDate}</span>
                     {exp.location && <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>📍 {exp.location}</span>}
                   </div>
-                  {exp.description && <p style={{ fontSize: '12px', lineHeight: '1.4', marginBottom: '8px', color: '#555' }}>{exp.description}</p>}
+                  {exp.description && <p style={{ fontSize: '12px', lineHeight: '1.7', marginBottom: '8px', color: '#555', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{exp.description}</p>}
                   {exp.achievements.length > 0 && (
                     <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
                       {exp.achievements.filter(ach => ach.trim()).map((achievement, achIndex) => (
@@ -129,7 +129,7 @@ const ProfessionalExecutiveTemplate = ({ resumeData }) => {
           {personalInfo.summary && (
             <div style={{ marginBottom: '25px' }}>
               <div style={{ fontSize: '14px', fontWeight: '900', color: '#000', textTransform: 'uppercase', marginBottom: '15px', borderBottom: '2px solid #000', paddingBottom: '3px', letterSpacing: '0.5px' }}>Summary</div>
-              <div style={{ fontSize: '12px', color: '#333', textAlign: 'justify', lineHeight: '1.5' }}>{personalInfo.summary}</div>
+              <div style={{ fontSize: '12px', color: '#333', textAlign: 'justify', lineHeight: '1.7', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{personalInfo.summary}</div>
             </div>
           )}
 
@@ -143,7 +143,7 @@ const ProfessionalExecutiveTemplate = ({ resumeData }) => {
                     <span style={{ color: '#2E86AB', fontSize: '14px', marginTop: '1px', flexShrink: '0' }}>{achievement.icon || '💎'}</span>
                     <div style={{ flex: '1' }}>
                       <div style={{ fontWeight: '700', color: '#000', marginBottom: '2px', fontSize: '12px' }}>{achievement.title}</div>
-                      <div style={{ fontSize: '11px', color: '#666', lineHeight: '1.4' }}>{achievement.description}</div>
+                      <div style={{ fontSize: '11px', color: '#666', lineHeight: '1.7', wordBreak: 'break-word', letterSpacing: '0.02em' }}>{achievement.description}</div>
                     </div>
                   </li>
                 ))}
