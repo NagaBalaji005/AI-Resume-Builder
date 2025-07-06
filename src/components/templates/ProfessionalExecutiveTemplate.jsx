@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 600);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+};
 
 const ProfessionalExecutiveTemplate = ({ resumeData }) => {
+  const isMobile = useIsMobile();
   const { personalInfo, experience, education, skills, achievements, certifications, languages, timeManagement, interests } = resumeData;
 
   return (
     <div data-resume-content style={{
-      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', 
-      lineHeight: '1.4', 
-      color: '#333', 
-      background: '#fff', 
-      padding: '32px',
-      maxWidth: '210mm', 
-      minHeight: '297mm', 
-      margin: '0 auto', 
-      fontSize: '13px',
+      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+      lineHeight: '1.4',
+      color: '#333',
+      background: '#fff',
+      padding: isMobile ? '3vw' : '32px',
+      maxWidth: isMobile ? '100vw' : '210mm',
+      minHeight: isMobile ? '100vh' : '297mm',
+      margin: '0 auto',
+      fontSize: isMobile ? '3.5vw' : '13px',
       border: '8px solid #fff',
       boxSizing: 'border-box',
       boxShadow: '0 0 0 1px #e0e0e0'
     }}>
-      
+
       <div style={{ marginBottom: '25px' }}>
         <div style={{ fontSize: '28px', fontWeight: '900', color: '#000', marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '1px' }}>{personalInfo.name}</div>
         <div style={{ fontSize: '16px', color: '#2E86AB', fontWeight: '600', marginBottom: '10px' }}>{personalInfo.title}</div>
@@ -39,9 +51,18 @@ const ProfessionalExecutiveTemplate = ({ resumeData }) => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px', height: '100%' }}>
-        <div style={{ paddingRight: '15px' }}>
-          
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr',
+        gap: isMobile ? '15px' : '30px',
+        height: '100%',
+        boxSizing: 'border-box',
+      }}>
+        <div style={{
+          paddingRight: isMobile ? 0 : '15px',
+          boxSizing: 'border-box',
+        }}>
+
           {/* Experience */}
           {experience.length > 0 && (
             <div style={{ marginBottom: '25px' }}>
@@ -123,8 +144,11 @@ const ProfessionalExecutiveTemplate = ({ resumeData }) => {
           )}
         </div>
 
-        <div style={{ paddingLeft: '15px' }}>
-          
+        <div style={{
+          paddingLeft: isMobile ? 0 : '15px',
+          boxSizing: 'border-box',
+        }}>
+
           {/* Summary */}
           {personalInfo.summary && (
             <div style={{ marginBottom: '25px' }}>
